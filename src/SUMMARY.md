@@ -2,7 +2,7 @@
 
 # Summary
 
-- [はじめに (TODO)](./introduction.md)
+- [はじめに](./introduction.md)
 - [AtCoderの環境について (TODO)](./todo.md)
   - [ソフトウェアのバージョンなど (TODO)](./todo.md)
   - [単一のソースファイル (TODO)](./todo.md)
