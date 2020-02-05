@@ -326,12 +326,11 @@ fn main() {
       例えば[`Index`](https://doc.rust-lang.org/stable/std/ops/trait.Index.html)で境界外アクセスしたときやメモリが足りずにアロケーションに失敗したとき、[`println!`が失敗したとき](https://doc.rust-lang.org/std/macro.println.html#panics)にパニックします。
       このように「失敗するとパニックする」ものはその条件をドキュメントに`# Panics`という形で書いています。
 
-(TODO: proconioの当落に応じて追記)
+なお標準入出力に関しては、AtCoder の 2020年言語アップデートで [proconio](https://docs.rs/proconio/0.3.6/proconio/), [whiteread](https://docs.rs/whiteread/0.5.0/whiteread/), [text-io](https://docs.rs/text_io/0.1.8/text_io/) の3種類のクレートが導入されました。これらを活用すると標準入力をかなり楽にできますので、ぜひご検討ください。どれを使えばよいかわからない方には proconio をおすすめします。詳しくは各ライブラリのドキュメントや[2020年言語アップデートの詳細](https://github.com/rust-lang-ja/atcoder-rust-resources/wiki/2020-Update#%E6%A8%99%E6%BA%96%E5%85%A5%E5%8A%9B%E3%82%92%E6%89%B1%E3%81%86%E3%82%82%E3%81%AE)も合わせてご参照ください。
 
-他にも、先程少し触れましたが例えば数値型の四則演算や比較を行なうときには基本的に両辺の型が等しくなければいけません。
-`i32`と`&'_ i32`を両辺に持って来ることくらいは許されていますが`i32`と`i64`をそのまま足したり比較したりはできません。
-片方を明示的に変換する必要があります。
-これは型システムの都合等ではなく数値型に対しては意図的に制限されています。
+話を戻しますが、他にも、例えば数値型の四則演算や比較を行なうときに両辺の型がまったく等しいことが求められるということもあります。
+例えば`i32`と`i64`をそのまま足したり比較したりはできず、片方を明示的に変換する必要があります。
+これは型システムの都合などの技術的な制約ではなく意図的なものです。
 
 さらにスライスのインデックスは[`usize`及び`usize`の範囲](https://doc.rust-lang.org/stable/std/slice/trait.SliceIndex.html)でなくてはなりません。
 `isize`では駄目です。
